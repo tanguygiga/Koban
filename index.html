@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+    <script src="index.js"></script>
+
+    <title>Koban</title>
+
+  </head>
+
+  <body ng-app="app">
+
+    <div class="container">
+
+      <div class="row" style="margin-top:1em">
+
+        <div ng-controller="Controller as ctrl">
+
+
+          <div class="container">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th ng-click="sortBy = 'date';reverse = !reverse">Date <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></th>
+                  <th>Montant</th>
+                  <th ng-click="sortBy = 'moyen';reverser = !reverse">Moyen <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></th>
+                  <th>Tiers</th>
+                  <th>Lieu</th>
+                  <th>Commentaire</th>
+                  <th></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr ng-click="ctrl.editTransaction(transaction)" ng-repeat="transaction in ctrl.transactions | orderBy:sortBy:reverse track by $index">
+                  <td>{{ transaction.date }}</td>
+                  <td>{{ transaction.montant }} €</td>
+                  <td>
+
+                    {{transaction.moyen}}
+                  </td>
+                  <td>{{transaction.tiers}}</td>
+                  <td>{{transaction.lieu}}</td>
+                  <td>{{transaction.comment}}</td>
+                  <td></td>
+                </tr>
+              </tbody>
+
+              <tfoot>
+                <tr>
+                  <form name="transactionForm" novalidate ng-submit="ctrl.save(transactionForm)">
+                    <td>
+                      <div class='input-group date'>
+                        <input type='text' class="form-control" required name="date" id="date" ng-model="ctrl.transaction.date">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="input-group">
+                        <input id="montant" name="montant" class="form-control" placeholder="0.00" type="number"
+                          required ng-model="ctrl.transaction.montant">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-euro"></span></span>
+                      </div>
+                    </td>
+                    <td>
+                      <!-- Single button -->
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                          aria-haspopup="true" aria-expanded="false">
+                          <span class="glyphicon glyphicon-credit-card"></span>
+                          <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#"><span class="glyphicon glyphicon-credit-card"></span></a></li>
+                          <li><a href="#"><span class="glyphicon glyphicon-transfer"></span></a></li>
+                        </ul>
+                      </div>
+
+                      <div class="input-group">
+                        <div class="radio">
+                          <label for="radios-0">
+                            <input type="radio" name="CARD" id="CARD" value="CARD" checked="checked" ng-model="ctrl.transaction.moyen">
+                            <span class="glyphicon glyphicon-credit-card"></span></label>
+                        </div>
+                        <div class="radio">
+                          <label for="radios-1">
+                            <input type="radio" name="TRANSFER" id="TRANSFER" value="TRANSFER" ng-model="ctrl.transaction.moyen">
+                            <span class="glyphicon glyphicon-transfer"></span></label>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="input-group">
+                        <input id="tiers" name="tiers" class="form-control" type="text" required ng-model="ctrl.transaction.tiers">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-shopping-cart"></span></span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="input-group">
+                        <input id="lieu" name="lieu" class="form-control" type="text" ng-model="ctrl.transaction.lieu">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="input-group">
+                        <textarea class="form-control" id="comment" name="comment" ng-model="ctrl.transaction.comment"></textarea>
+                      </div>
+                    </td>
+                    <td>
+                      <button ng-disabled="transactionForm.$invalid" class="btn btn-primary" type="submit">Enregistrer</button>
+                    </td>
+                  </form>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>

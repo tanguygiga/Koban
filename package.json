@@ -1,0 +1,19 @@
+{
+  "name": "testng",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm-run-all --parallel dev:*",
+    "dev:api": "json-server -w db.json",
+    "dev:server": "serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "json-server": "^0.9.6",
+    "npm-run-all": "^4.0.2",
+    "serve": "^5.1.2"
+  }
+}

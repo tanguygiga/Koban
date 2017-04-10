@@ -1,0 +1,9 @@
+wsp
+bin
+sonarqube-6.2
+*.class
+.gitignore
+.project
+.settings
+.classpath
+node_modules
