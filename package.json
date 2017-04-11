@@ -1,19 +1,29 @@
 {
-  "name": "testng",
+  "name": "koban",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "npm-run-all --parallel dev:*",
     "dev:api": "json-server -w db.json",
-    "dev:server": "serve"
+    "startOld": "webpack --watch",
+    "dev:start": "webpack-dev-server --open",
+    "build": "webpack -p"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-env": "^1.3.2",
     "json-server": "^0.9.6",
     "npm-run-all": "^4.0.2",
-    "serve": "^5.1.2"
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "^2.4.2"
+  },
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-route": "^1.6.4"
   }
 }

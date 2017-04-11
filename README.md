@@ -1,2 +1,2 @@
 # Koban
-repository for my electron-based accounting app project
+repository for my ECMAScript-based accounting app project
