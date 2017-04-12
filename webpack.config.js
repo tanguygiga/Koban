@@ -10,7 +10,9 @@ module.exports = {
   devServer: {
     contentBase: path.join( __dirname, "app" ),
     compress: true,
-    port: 9000
+    port: 9000,
+    historyApiFallback: true
+
   },
 
   devtool: 'inline-source-map',
