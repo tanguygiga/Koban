@@ -1,68 +1,56 @@
 <div class="row">
-    <div class="container">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th ng-click="sortBy = 'date';reverse = !reverse">
-                        Date <span class="glyphicon glyphicon-menu-down"
-                              aria-hidden="true"></span>
-                    </th>
-                    <th>Montant</th>
-                    <th ng-click="sortBy = 'moyen';reverser = !reverse">
-                        Moyen <span class="glyphicon glyphicon-menu-down"
-                              aria-hidden="true"></span>
-                    </th>
-                    <th>Tiers</th>
-                    <th>Lieu</th>
-                    <th>Commentaire</th>
-                    <th></th>
-                </tr>
-            </thead>
+  <div class="container">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th ng-click="sortBy = 'date';reverse = !reverse">
+            Date <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+          </th>
+          <th>Montant</th>
+          <th ng-click="sortBy = 'moyen';reverse = !reverse">
+            Moyen <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+          </th>
+          <th>Tiers</th>
+          <th>Lieu</th>
+          <th>Commentaire</th>
+          <th></th>
+        </tr>
+      </thead>
 
-            <tbody>
-                <tr ng-click="$ctrl.update(transaction)"
-                    ng-repeat="transaction in $ctrl.transactions | orderBy:'date':reverse track by $index">
-                    <td>{{ transaction.date }}</td>
-                    <td>{{ transaction.montant }} €</td>
-                    <td>{{transaction.moyen}}</td>
-                    <td>{{transaction.tiers}}</td>
-                    <td>{{transaction.lieu}}</td>
-                    <td>{{transaction.comment}}</td>
-                    <td></td>
-                </tr>
-            </tbody>
+      <tbody>
+        <tr ng-click="$ctrl.update(transaction)" ng-repeat="transaction in $ctrl.transactions | orderBy:(sortBy?sortBy:'date'):reverse track by $index">
+          <td>{{ transaction.date }}</td>
+          <td>{{ transaction.montant }} €</td>
+          <td>{{ transaction.moyen }}</td>
+          <td>{{ transaction.tiers }}</td>
+          <td>{{ transaction.lieu }}</td>
+          <td>{{ transaction.comment }}</td>
+          <td></td>
+        </tr>
+      </tbody>
 
-            <tfoot>
-                <tr>
-                    <form name="transactionForm"
-                          ng-submit="$ctrl.update(transactionForm)">
-                        <td>
-                            <div class='input-group date'>
-                                <input type='text'
-                                       class="form-control"
-                                       required
-                                       name="date"
-                                       id="date"
-                                       ng-model="$ctrl.transaction.date">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="input-group">
-                                <input id="montant"
-                                       name="montant"
-                                       class="form-control"
-                                       placeholder="0.00"
-                                       type="number"
-                                       required
-                                       ng-model="$ctrl.transaction.montant">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-euro"></span></span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="input-group">
-                                <div class="radio">
-                                    <label for="radios-0">
+      <tfoot>
+        <tr>
+          <form name="transactionForm" ng-submit="$ctrl.update(transactionForm)">
+            <td>
+              <div class='input-group date'>
+                <input type='text' class="form-control" required name="date" id="date" ng-model="$ctrl.transaction.date">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+              </div>
+            </td>
+            <td>
+              <div class="input-group">
+                <input id="montant" name="montant" class="form-control" placeholder="0.00" type="number" required ng-model="$ctrl.transaction.montant">
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-euro">
+                  </span>
+                </span>
+              </div>
+            </td>
+            <td>
+              <div class="input-group">
+                <div class="radio">
+                  <label for="radios-0">
                                         <input type="radio"
                                                name="CARD"
                                                id="CARD"
@@ -71,55 +59,42 @@
                                                ng-model="$ctrl.transaction.moyen">
                                         <span class="glyphicon glyphicon-credit-card"></span>
                                     </label>
-                                </div>
-                                <div class="radio">
-                                    <label for="radios-1">
+                </div>
+                <div class="radio">
+                  <label for="radios-1">
                                         <input type="radio"
                                                name="TRANSFER"
                                                id="TRANSFER"
                                                value="TRANSFER"
                                                ng-model="$ctrl.transaction.moyen">
                                         <span class="glyphicon glyphicon-transfer"></span></label>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="input-group">
-                                <input id="tiers"
-                                       name="tiers"
-                                       class="form-control"
-                                       type="text"
-                                       required
-                                       ng-model="$ctrl.transaction.tiers">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-shopping-cart"></span></span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="input-group">
-                                <input id="lieu"
-                                       name="lieu"
-                                       class="form-control"
-                                       type="text"
-                                       ng-model="$ctrl.transaction.lieu">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="input-group">
-                                <textarea class="form-control"
-                                          id="comment"
-                                          name="comment"
-                                          ng-model="$ctrl.transaction.comment"></textarea>
-                            </div>
-                        </td>
-                        <td>
-                            <button class="btn btn-primary"
-                                    type="submit">Enregistrer</button>
-                        </td>
-                    </form>
-                </tr>
-            </tfoot>
-        </table>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="input-group">
+                <input id="tiers" name="tiers" class="form-control" type="text" required ng-model="$ctrl.transaction.tiers">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-shopping-cart"></span></span>
+              </div>
+            </td>
+            <td>
+              <div class="input-group">
+                <input id="lieu" name="lieu" class="form-control" type="text" ng-model="$ctrl.transaction.lieu">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
+              </div>
+            </td>
+            <td>
+              <div class="input-group">
+                <textarea class="form-control" id="comment" name="comment" ng-model="$ctrl.transaction.comment"></textarea>
+              </div>
+            </td>
+            <td>
+              <button class="btn btn-primary" type="submit">Enregistrer</button>
+            </td>
+          </form>
+        </tr>
+      </tfoot>
+    </table>
 
-    </div>
+  </div>
 </div>

@@ -15,8 +15,7 @@ export class TransactionService {
   }
 
   delete( transaction ) {
-    return this.$http.delete( `${this.API_URL}/${ transaction.id }` )
-      .then( response => response.data );
+    return this.$http.delete( `${this.API_URL}/${ transaction.id }` );
   }
 
   put( transaction ) {
