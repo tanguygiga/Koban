@@ -1,21 +1,21 @@
-export class TransactionController {
+import template from './transactions.html';
 
-  constructor( TransactionService, $routeParams, $location, ) {
+class controller {
+
+  constructor( $routeParams, $location, TransactionService ) {
 
     this.TransactionService = TransactionService;
     this.$location = $location;
-    this.TransactionService.readAll()
+    this.TransactionService.getAll()
       .then( transactions => this.transactions = transactions );
 
   }
 
   update( transactionForm ) {
     if ( transactionForm.$valid ) {
-
       TransactionService.push( this.transaction )
         .then( transaction => this.transactions.push( transaction ) )
-        .then( () => this.$location.path( '/transactions' ) )
-
+        .then( () => this.$location.path( '/transactions' ) );
       this.transaction = null;
       transactionForm.$setPristine();
       transactionForm.$setUntouched();
@@ -35,4 +35,12 @@ export class TransactionController {
     this.transaction = angular.copy( transaction );
   }
 
+}
+
+export const TransactionComponent = {
+  bindings: {
+
+  },
+  template,
+  controller,
 }

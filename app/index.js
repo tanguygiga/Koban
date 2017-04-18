@@ -1,32 +1,17 @@
 import angular from 'angular';
 import ngRoute from 'angular-route';
+
 import {
-  TransactionModule
-} from './transaction';
+  TransactionComponent
+} from './transaction.component';
+import {
+  TransactionService
+} from './transaction.service';
 
 angular.module( 'app', [
-    TransactionModule,
     ngRoute
   ] )
-  .config( function ( $locationProvider, $routeProvider ) {
+  .value( 'API_URL', 'http://localhost:3000/transaction' )
+  .service( 'TransactionService', TransactionService )
 
-    $locationProvider.html5Mode( true );
-
-    $routeProvider
-      .when( '/transactions', {
-        templateUrl: 'views/transactions.html',
-        controller: 'TransactionController',
-        controllerAs: 'ctrl'
-      } )
-      .when( '/', {
-        controller: 'HomeController',
-        templateUrl: 'views/home.html',
-        controllerAs: 'ctrl'
-      } )
-      .otherwise( {
-        redirectTo: '/'
-      } );
-  } )
-  .controller( 'HomeController', function () {
-    this.name = 'Koban';
-  } )
+  .component( 'koTransaction', TransactionComponent );

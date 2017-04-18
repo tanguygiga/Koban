@@ -1,2 +1,6 @@
 # Koban
-repository for my ECMAScript-based accounting app project
+repository for my accounting app project
+
+technologies used:
+- JavaScript
+-- AngularJS

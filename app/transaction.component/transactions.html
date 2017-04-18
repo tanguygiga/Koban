@@ -1,6 +1,4 @@
-<div class="row"
-     style="margin-top:1em">
-
+<div class="row">
     <div class="container">
         <table class="table table-hover">
             <thead>
@@ -22,8 +20,8 @@
             </thead>
 
             <tbody>
-                <tr ng-click="ctrl.update(transaction)"
-                    ng-repeat="transaction in ctrl.transactions | orderBy:sortBy:reverse track by $index">
+                <tr ng-click="$ctrl.update(transaction)"
+                    ng-repeat="transaction in $ctrl.transactions | orderBy:sortBy:reverse track by $index">
                     <td>{{ transaction.date }}</td>
                     <td>{{ transaction.montant }} €</td>
                     <td>{{transaction.moyen}}</td>
@@ -37,7 +35,7 @@
             <tfoot>
                 <tr>
                     <form name="transactionForm"
-                          ng-submit="ctrl.update(transactionForm)">
+                          ng-submit="$ctrl.update(transactionForm)">
                         <td>
                             <div class='input-group date'>
                                 <input type='text'
@@ -45,7 +43,7 @@
                                        required
                                        name="date"
                                        id="date"
-                                       ng-model="ctrl.transaction.date">
+                                       ng-model="$ctrl.transaction.date">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                             </div>
                         </td>
@@ -57,7 +55,7 @@
                                        placeholder="0.00"
                                        type="number"
                                        required
-                                       ng-model="ctrl.transaction.montant">
+                                       ng-model="$ctrl.transaction.montant">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-euro"></span></span>
                             </div>
                         </td>
@@ -70,7 +68,7 @@
                                                id="CARD"
                                                value="CARD"
                                                checked="checked"
-                                               ng-model="ctrl.transaction.moyen">
+                                               ng-model="$ctrl.transaction.moyen">
                                         <span class="glyphicon glyphicon-credit-card"></span>
                                     </label>
                                 </div>
@@ -80,7 +78,7 @@
                                                name="TRANSFER"
                                                id="TRANSFER"
                                                value="TRANSFER"
-                                               ng-model="ctrl.transaction.moyen">
+                                               ng-model="$ctrl.transaction.moyen">
                                         <span class="glyphicon glyphicon-transfer"></span></label>
                                 </div>
                             </div>
@@ -92,7 +90,7 @@
                                        class="form-control"
                                        type="text"
                                        required
-                                       ng-model="ctrl.transaction.tiers">
+                                       ng-model="$ctrl.transaction.tiers">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-shopping-cart"></span></span>
                             </div>
                         </td>
@@ -102,7 +100,7 @@
                                        name="lieu"
                                        class="form-control"
                                        type="text"
-                                       ng-model="ctrl.transaction.lieu">
+                                       ng-model="$ctrl.transaction.lieu">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
                             </div>
                         </td>
@@ -111,7 +109,7 @@
                                 <textarea class="form-control"
                                           id="comment"
                                           name="comment"
-                                          ng-model="ctrl.transaction.comment"></textarea>
+                                          ng-model="$ctrl.transaction.comment"></textarea>
                             </div>
                         </td>
                         <td>
