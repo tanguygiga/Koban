@@ -21,7 +21,7 @@
 
             <tbody>
                 <tr ng-click="$ctrl.update(transaction)"
-                    ng-repeat="transaction in $ctrl.transactions | orderBy:sortBy:reverse track by $index">
+                    ng-repeat="transaction in $ctrl.transactions | orderBy:'date':reverse track by $index">
                     <td>{{ transaction.date }}</td>
                     <td>{{ transaction.montant }} €</td>
                     <td>{{transaction.moyen}}</td>
