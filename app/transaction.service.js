@@ -10,7 +10,7 @@ export class TransactionService {
       .then( response => response.data );
   }
 
-  push( transaction ) {
+  update( transaction ) {
     return ( ( transaction.id ) ? put( transaction ) : post( transaction ) );
   }
 

@@ -12,14 +12,12 @@ class controller {
   }
 
   update( transactionForm ) {
-    if ( transactionForm.$valid ) {
-      TransactionService.push( this.transaction )
-        .then( transaction => this.transactions.push( transaction ) )
-        .then( () => this.$location.path( '/transactions' ) );
-      this.transaction = null;
-      transactionForm.$setPristine();
-      transactionForm.$setUntouched();
-    }
+    TransactionService.update( this.transaction )
+      .then( transaction => this.transactions.push( transaction ) )
+      .then( () => this.$location.path( '/transactions' ) );
+    this.transaction = null;
+    transactionForm.$setPristine();
+    transactionForm.$setUntouched();
   }
 
   delete( transaction ) {

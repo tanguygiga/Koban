@@ -4,11 +4,11 @@
       <thead>
         <tr>
           <th ng-click="sortBy = 'date';reverse = !reverse">
-            Date <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+            Date <span class="glyphicon glyphicon-menu-down" aria-h "true"></span>
           </th>
           <th>Montant</th>
           <th ng-click="sortBy = 'moyen';reverse = !reverse">
-            Moyen <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+            Moyen <span class="glyphicon glyphicon-menu-down" aria-h "true"></span>
           </th>
           <th>Tiers</th>
           <th>Lieu</th>
@@ -33,63 +33,53 @@
         <tr>
           <form name="transactionForm" ng-submit="$ctrl.update(transactionForm)">
             <td>
-              <div class='input-group date'>
-                <input type='text' class="form-control" required name="date" id="date" ng-model="$ctrl.transaction.date">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+              <div class='input-group'>
+                <input type='text' class="form-control" name="date" ng-model="$ctrl.transaction.date">
               </div>
             </td>
             <td>
               <div class="input-group">
-                <input id="montant" name="montant" class="form-control" placeholder="0.00" type="number" required ng-model="$ctrl.transaction.montant">
-                <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-euro">
-                  </span>
-                </span>
+                <input name="montant" class="form-control" placeholder="0.00" type="number" ng-model="$ctrl.transaction.montant">
               </div>
             </td>
             <td>
               <div class="input-group">
                 <div class="radio">
                   <label for="radios-0">
-                                        <input type="radio"
-                                               name="CARD"
-                                               id="CARD"
-                                               value="CARD"
-                                               checked="checked"
-                                               ng-model="$ctrl.transaction.moyen">
-                                        <span class="glyphicon glyphicon-credit-card"></span>
-                                    </label>
+                    <input type="radio"
+                    name="CARD"
+                    value="CARD"
+                    checked="checked"
+                    ng-model="$ctrl.transaction.moyen">
+                    Carte</label>
                 </div>
                 <div class="radio">
                   <label for="radios-1">
-                                        <input type="radio"
-                                               name="TRANSFER"
-                                               id="TRANSFER"
-                                               value="TRANSFER"
-                                               ng-model="$ctrl.transaction.moyen">
-                                        <span class="glyphicon glyphicon-transfer"></span></label>
+                    <input type="radio"
+                    name="TRANSFER"
+                    value="TRANSFER"
+                    ng-model="$ctrl.transaction.moyen">
+                    Virement</label>
                 </div>
               </div>
             </td>
             <td>
               <div class="input-group">
-                <input id="tiers" name="tiers" class="form-control" type="text" required ng-model="$ctrl.transaction.tiers">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-shopping-cart"></span></span>
+                <input name="tiers" class="form-control" type="text" ng-model="$ctrl.transaction.tiers">
               </div>
             </td>
             <td>
               <div class="input-group">
-                <input id="lieu" name="lieu" class="form-control" type="text" ng-model="$ctrl.transaction.lieu">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
+                <input name="lieu" class="form-control" type="text" ng-model="$ctrl.transaction.lieu">
               </div>
             </td>
             <td>
               <div class="input-group">
-                <textarea class="form-control" id="comment" name="comment" ng-model="$ctrl.transaction.comment"></textarea>
+                <textarea class="form-control" name="comment" ng-model="$ctrl.transaction.comment"></textarea>
               </div>
             </td>
             <td>
-              <button class="btn btn-primary" type="submit">Enregistrer</button>
+              <input class="btn btn-primary" type="submit" value="Enregistrer"></input>
             </td>
           </form>
         </tr>
