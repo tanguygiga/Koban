@@ -1,0 +1,90 @@
+<div class="row">
+  <div class="container">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th ng-click="sortBy = 'date';reverse = !reverse">
+            Date <span class="glyphicon glyphicon-menu-down" aria-h "true"></span>
+          </th>
+          <th>Montant</th>
+          <th ng-click="sortBy = 'moyen';reverse = !reverse">
+            Moyen <span class="glyphicon glyphicon-menu-down" aria-h "true"></span>
+          </th>
+          <th>Tiers</th>
+          <th>Lieu</th>
+          <th>Commentaire</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr ng-click="$ctrl.update(transaction)" ng-repeat="transaction in $ctrl.transactions | orderBy:(sortBy?sortBy:'date'):reverse track by $index">
+          <td>{{ transaction.date }}</td>
+          <td>{{ transaction.montant }} €</td>
+          <td>{{ transaction.moyen }}</td>
+          <td>{{ transaction.tiers }}</td>
+          <td>{{ transaction.lieu }}</td>
+          <td>{{ transaction.comment }}</td>
+          <td></td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <form name="transactionForm" ng-submit="$ctrl.update(transactionForm)">
+            <td>
+              <div class='input-group'>
+                <input type='text' class="form-control" name="date" ng-model="$ctrl.transaction.date">
+              </div>
+            </td>
+            <td>
+              <div class="input-group">
+                <input name="montant" class="form-control" placeholder="0.00" type="number" ng-model="$ctrl.transaction.montant">
+              </div>
+            </td>
+            <td>
+              <div class="input-group">
+                <div class="radio">
+                  <label for="radios-0">
+                    <input type="radio"
+                    name="CARD"
+                    value="CARD"
+                    checked="checked"
+                    ng-model="$ctrl.transaction.moyen">
+                    Carte</label>
+                </div>
+                <div class="radio">
+                  <label for="radios-1">
+                    <input type="radio"
+                    name="TRANSFER"
+                    value="TRANSFER"
+                    ng-model="$ctrl.transaction.moyen">
+                    Virement</label>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="input-group">
+                <input name="tiers" class="form-control" type="text" ng-model="$ctrl.transaction.tiers">
+              </div>
+            </td>
+            <td>
+              <div class="input-group">
+                <input name="lieu" class="form-control" type="text" ng-model="$ctrl.transaction.lieu">
+              </div>
+            </td>
+            <td>
+              <div class="input-group">
+                <textarea class="form-control" name="comment" ng-model="$ctrl.transaction.comment"></textarea>
+              </div>
+            </td>
+            <td>
+              <input class="btn btn-primary" type="submit" value="Enregistrer"></input>
+            </td>
+          </form>
+        </tr>
+      </tfoot>
+    </table>
+
+  </div>
+</div>
