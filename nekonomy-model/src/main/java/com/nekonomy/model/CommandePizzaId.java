@@ -1,4 +1,4 @@
-package fr.pizzeria.model;
+package com.nekonomy.model;
 
 import java.io.Serializable;
 import java.util.Objects;

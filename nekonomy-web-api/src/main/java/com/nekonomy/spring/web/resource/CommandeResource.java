@@ -1,4 +1,4 @@
-package fr.pizzeria.spring.web.resource;
+package com.nekonomy.spring.web.resource;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.pizzeria.model.Commande;
-import fr.pizzeria.model.CommandeComplete;
-import fr.pizzeria.model.CommandePizza;
-import fr.pizzeria.model.StatutCommande;
-import fr.pizzeria.spring.web.repository.ICommandePizzaRepository;
-import fr.pizzeria.spring.web.repository.ICommandeRepository;
+import com.nekonomy.model.Commande;
+import com.nekonomy.model.CommandeComplete;
+import com.nekonomy.model.CommandePizza;
+import com.nekonomy.model.StatutCommande;
+import com.nekonomy.spring.web.repository.ICommandePizzaRepository;
+import com.nekonomy.spring.web.repository.ICommandeRepository;
 
 /**
  * Resource Commande.

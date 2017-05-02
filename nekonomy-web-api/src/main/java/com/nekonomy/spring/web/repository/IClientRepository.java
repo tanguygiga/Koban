@@ -1,8 +1,8 @@
-package fr.pizzeria.spring.web.repository;
+package com.nekonomy.spring.web.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import fr.pizzeria.model.Client;
+import com.nekonomy.model.Client;
 
 public interface IClientRepository extends JpaRepository<Client, Integer> {
 	

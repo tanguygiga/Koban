@@ -1,4 +1,4 @@
-package fr.pizzeria.spring.web;
+package com.nekonomy.spring.web;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -18,20 +18,20 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import fr.pizzeria.model.CategoriePizza;
-import fr.pizzeria.model.Ingredient;
-import fr.pizzeria.model.Pizza;
-import fr.pizzeria.model.TypePizza;
-import fr.pizzeria.spring.web.repository.IIngredientRepository;
-import fr.pizzeria.spring.web.repository.IPizzaRepository;
+import com.nekonomy.model.CategoriePizza;
+import com.nekonomy.model.Ingredient;
+import com.nekonomy.model.Pizza;
+import com.nekonomy.model.TypePizza;
+import com.nekonomy.spring.web.repository.IIngredientRepository;
+import com.nekonomy.spring.web.repository.IPizzaRepository;
 
 /**
- * Application PizzeriaApp démarré via Spring Boot.
+ * Application NekonomyApp démarrée via Spring Boot.
  */
 @SpringBootApplication
-@EnableJpaRepositories("fr.pizzeria.spring.web.repository")
-@EntityScan("fr.pizzeria.model")
-public class PizzeriaApp {
+@EnableJpaRepositories("com.nekonomy.spring.web.repository")
+@EntityScan("com.nekonomy.model")
+public class NekonomyApp {
 
 	/**
 	 * Activation de CORS pour tous les domaines.
@@ -86,6 +86,6 @@ public class PizzeriaApp {
 	 */
 	public static void main(String[] args) {
 
-		SpringApplication.run(PizzeriaApp.class);
+		SpringApplication.run(NekonomyApp.class);
 	}
 }

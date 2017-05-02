@@ -1,7 +1,7 @@
-package fr.pizzeria.spring.web.repository;
+package com.nekonomy.spring.web.repository;
 
 
-import fr.pizzeria.model.Commande;
+import com.nekonomy.model.Commande;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

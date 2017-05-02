@@ -1,4 +1,4 @@
-package fr.pizzeria.spring.web.filter;
+package com.nekonomy.spring.web.filter;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
 

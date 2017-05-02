@@ -1,4 +1,4 @@
-package fr.pizzeria.model;
+package com.nekonomy.model;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
@@ -13,7 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import fr.pizzeria.exception.UtilisateurRuntimeException;
+import com.nekonomy.exception.UtilisateurRuntimeException;
 
 @Entity
 public class Utilisateur {

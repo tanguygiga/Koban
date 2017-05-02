@@ -1,4 +1,4 @@
-package fr.pizzeria.spring.web.resource;
+package com.nekonomy.spring.web.resource;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.pizzeria.model.Client;
-import fr.pizzeria.spring.web.repository.IClientRepository;
+import com.nekonomy.model.Client;
+import com.nekonomy.spring.web.repository.IClientRepository;
 
 /**
  * Ressource Client

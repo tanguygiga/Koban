@@ -1,4 +1,4 @@
-package fr.pizzeria.model;
+package com.nekonomy.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

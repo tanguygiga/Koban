@@ -1,4 +1,4 @@
-package fr.pizzeria.model;
+package com.nekonomy.model;
 
 public enum CategoriePizza {
 	VIANDE("Viande"), POISSON("Poisson"), SANS_VIANDE("Sans Viande");

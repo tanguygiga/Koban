@@ -1,9 +1,6 @@
-package fr.pizzeria.exception;
+package com.nekonomy.exception;
 
-/**
- * @author Quelqun
- *
- */
+
 public class UtilisateurRuntimeException extends RuntimeException {
 
 	/**

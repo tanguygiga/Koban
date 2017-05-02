@@ -1,4 +1,4 @@
-package fr.pizzeria.model;
+package com.nekonomy.model;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -41,8 +41,6 @@ public class Commande {
 	public Commande(String numCommande, StatutCommande statut, Client client, List<CommandePizza> commandePizzas) {
 		this.numeroCommande = numCommande;
 		this.statut = statut;
-		this.adresse = this.adresse;
-		this.livreur = this.livreur;
 		this.client = client;
 		this.commandesPizzas = commandePizzas;
 	}

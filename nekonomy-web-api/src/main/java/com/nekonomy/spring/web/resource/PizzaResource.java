@@ -1,7 +1,7 @@
-package fr.pizzeria.spring.web.resource;
+package com.nekonomy.spring.web.resource;
 
-import fr.pizzeria.model.Pizza;
-import fr.pizzeria.spring.web.repository.IPizzaRepository;
+import com.nekonomy.model.Pizza;
+import com.nekonomy.spring.web.repository.IPizzaRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
