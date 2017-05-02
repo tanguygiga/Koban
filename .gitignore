@@ -8,3 +8,4 @@ sonarqube-6.2
 .classpath
 node_modules
 img
+target
